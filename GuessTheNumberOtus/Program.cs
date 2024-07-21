@@ -9,14 +9,8 @@ public class Program
         var gameSettings = new GameSettings(0, 1000, 10);
         var game = new GameLogic(randomNumberGenerator, gameSettings);
 
-        game.Start();
+        game.Start(ui);
 
-        while (!game.IsGameOver)
-        {
-            ui.ShowMessage("Enter your number!");
-            var guess = ui.GetInput();
-            game.MakeGuess(guess);
-            ui.ShowMessage(game.ResultMessage);
-        }
+        
     }
 }

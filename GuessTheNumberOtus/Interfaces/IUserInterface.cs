@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GuessTheNumberOtus.Interfaces
 {
-    internal interface IUserInterface
+    public interface IUserInterface
     {
         void ShowMessage(string message);
-        int GetInput();
+        string GetInput();
     }
 }

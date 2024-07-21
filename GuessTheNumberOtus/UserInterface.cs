@@ -13,9 +13,9 @@ namespace GuessTheNumberOtus
         {
             Console.WriteLine(message);
         }
-        public int GetInput()
+        public string GetInput()
         {
-            return int.Parse(Console.ReadLine());
+            return Console.ReadLine();
         }
     }
 }

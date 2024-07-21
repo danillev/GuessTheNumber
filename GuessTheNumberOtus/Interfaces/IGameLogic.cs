@@ -8,7 +8,7 @@ namespace GuessTheNumberOtus.Interfaces
 {
     public interface IGameLogic
     {
-        void Start();
+        void Start(IUserInterface userInterface);
         bool MakeGuess(int guess);
         bool IsGameOver {  get; }
         string ResultMessage { get; }

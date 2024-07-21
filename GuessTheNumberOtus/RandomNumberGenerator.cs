@@ -9,7 +9,7 @@ namespace GuessTheNumberOtus
 {
     public class RandomNumberGenerator : IRandomNumberGenerator
     {
-        private static readonly Random _randomNumber = new Random();
+        private readonly Random _randomNumber = new Random();
         public int GetRandomGenerate(int minNumber, int maxNumber)
         {
             return _randomNumber.Next(minNumber, maxNumber + 1);

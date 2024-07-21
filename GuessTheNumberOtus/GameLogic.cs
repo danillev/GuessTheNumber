@@ -26,11 +26,38 @@ namespace GuessTheNumberOtus
             _resultMessage = string.Empty;
         }
 
-        public void Start()
+        public void Start(IUserInterface userInterface)
         {
             _isGameOver = false;
             _attemptsNumber = 0;
-            Console.WriteLine("Game is Start! Choose your number!");
+            userInterface.ShowMessage("Game is Start! Choose your number!");
+
+            while (!this.IsGameOver)
+            {
+                var guess = GetValidGuess(userInterface);
+                this.MakeGuess(guess);
+                userInterface.ShowMessage(this.ResultMessage);
+            }
+        }
+
+        private int GetValidGuess(IUserInterface userInterface)
+        {
+            int guess = new int();
+            bool isValidInput = false;
+
+            while (!isValidInput)
+            {
+                userInterface.ShowMessage("Enter your number!");
+                var input = userInterface.GetInput();
+                isValidInput = int.TryParse(input, out guess);
+
+                if (!isValidInput)
+                {
+                    userInterface.ShowMessage("Invalid input. Please enter a valid integer.");
+                }
+            }
+
+            return guess;
         }
 
         public bool MakeGuess(int guess)
